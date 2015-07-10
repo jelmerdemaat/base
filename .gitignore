@@ -5,7 +5,7 @@ dist/
 node_modules/
 npm-debug.log
 
-# Sass/CSS
+# Sass cache + sourcemaps
 .sass-cache/
 *.scssc
 *.sassc
