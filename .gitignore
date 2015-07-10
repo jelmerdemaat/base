@@ -1,2 +1,8 @@
+# Sass/CSS
 .sass-cache
+*.scssc
+*.sassc
 *.css.map
+
+# Other
+.DS_Store
