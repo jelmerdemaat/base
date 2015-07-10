@@ -1,0 +1,2 @@
+# base
+Project setup boilerplate.
