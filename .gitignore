@@ -1,8 +1,12 @@
+# Distribution files
+dist/
+
 # Node
-node_modules
+node_modules/
+npm-debug.log
 
 # Sass/CSS
-.sass-cache
+.sass-cache/
 *.scssc
 *.sassc
 *.css.map
