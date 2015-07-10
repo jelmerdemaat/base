@@ -32,12 +32,18 @@ gulp.task('scss', function() {
     .pipe(sass({
       outputStyle: 'compact'
     }))
+    .on('error', function(err) {
+      console.log(err);
+    })
     .pipe(gulp.dest(scss.dest));
 });
 
 gulp.task('javascript', function() {
   gulp.src(javascript.src)
     .pipe(uglify())
+    .on('error', function(err) {
+      console.log(err);
+    })
     .pipe(gulp.dest(javascript.dest));
 });
 
