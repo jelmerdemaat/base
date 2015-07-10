@@ -1,5 +1,22 @@
 {
+	"name": "%name%",
+	"version": "0.0.1",
+	"description": "%description%",
+	"license": "MIT",
+	"title": "%title%",
+	"author": {
+	    "name": "Jelmer de Maat",
+	    "email": "%email%",
+	    "url": "%website%"
+	  },
 	"devDependencies": {
-		
+		"gulp": "*",
+		"gulp-sass": "*",
+		"gulp-uglify": "*",
+		"gulp-concat": "*",
+		"gulp-rename": "*"
+	},
+	"repository": {
+		"url": "%url"
 	}
 }
