@@ -17,6 +17,6 @@
 		"gulp-rename": "*"
 	},
 	"repository": {
-		"url": "%url%"
+		"url": "%repository%"
 	}
 }

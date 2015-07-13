@@ -1,0 +1,13 @@
+/// Typography
+
+$base-font-size: 16px;
+$base-line-heigt: 1.3;
+
+/// Responsive
+
+$breakpoints: (
+  alpha: 480px,
+  beta: 768px,
+  gamma: 1024px,
+  delta: 1280px
+);

@@ -1,3 +1,14 @@
-@import 'normalize';
+@import "variables",
+        "mixins",
+        "normalize";
 
-a { color: hotpink; }
+
+/// Example media query:
+
+a {
+  color: hotpink;
+
+  @include respond-to(alpha) {
+    color: firebrick;
+  }
+}
