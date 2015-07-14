@@ -3,7 +3,7 @@ dist/
 
 # Node
 node_modules/
-npm-debug.log
+*.log
 
 # Sass cache + sourcemaps
 .sass-cache/
@@ -13,3 +13,5 @@ npm-debug.log
 
 # Other
 .DS_Store
+*.rar
+*.zip
