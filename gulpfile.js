@@ -1,8 +1,12 @@
 var gulp = require('gulp'),
+
     sass = require('gulp-sass'),
     csso = require('gulp-csso'),
   	sourcemaps = require('gulp-sourcemaps'),
-  	uglify = require('gulp-uglify'),
+    scsslint = require('gulp-scss-lint'),
+
+    uglify = require('gulp-uglify'),
+
   	concat = require('gulp-concat'),
   	rename = require('gulp-rename');
 
@@ -12,17 +16,17 @@ var src = 'src/',
 var html = {
 	src: src + '*.html',
 	dest: dest
-}
+};
 
 var scss = {
 	src: src + 'sass/**/*.scss',
 	dest: dest + 'css/'
-}
+};
 
 var javascript = {
 	src: src + 'javascript/**/*.js',
 	dest: dest + 'js/'
-}
+};
 
 gulp.task('html', function() {
 	gulp.src(html.src)
@@ -31,6 +35,7 @@ gulp.task('html', function() {
 
 gulp.task('scss', function() {
   gulp.src(scss.src)
+    .pipe(scsslint({}))
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compact'

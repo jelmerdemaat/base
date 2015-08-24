@@ -1,0 +1,25 @@
+# Exclude external CSS files that aren't written by me
+exclude: 'src/sass/vendor/**'
+
+# Scss lint settings
+linters:
+  ColorKeyword:
+    enabled: false
+  DeclarationOrder:
+    enabled: false
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: space
+    width: 2
+  LeadingZero:
+    enabled: true
+    style: include_zero
+  NestingDepth:
+    enabled: true
+    max_depth: 2
+  PropertySortOrder:
+    enabled: false
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: true
