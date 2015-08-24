@@ -1,9 +1,12 @@
 var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
 
     sass = require('gulp-sass'),
     csso = require('gulp-csso'),
   	sourcemaps = require('gulp-sourcemaps'),
     scsslint = require('gulp-scss-lint'),
+
+    sprity = require('sprity'),
 
     uglify = require('gulp-uglify'),
 
@@ -11,7 +14,7 @@ var gulp = require('gulp'),
   	rename = require('gulp-rename');
 
 var src = 'src/',
-	dest = 'dist/';
+	  dest = 'dist/';
 
 var html = {
 	src: src + '*.html',
@@ -20,12 +23,21 @@ var html = {
 
 var scss = {
 	src: src + 'sass/**/*.scss',
-	dest: dest + 'css/'
+	dest: dest + 'css/',
+  folder: src + 'sass/'
 };
 
 var javascript = {
 	src: src + 'javascript/**/*.js',
 	dest: dest + 'js/'
+};
+
+var sprite = {
+  src: src + 'sprite/*.{png,jpg,gif}',
+  dest: dest + 'sprite/',
+  name: 'sprite',
+  style: scss.folder + 'sprite.scss',
+
 };
 
 gulp.task('html', function() {
@@ -76,6 +88,24 @@ gulp.task('javascript:build', function() {
     .pipe(gulp.dest(javascript.dest));
 });
 
+
+/// TODO: Fix sprite task!
+
+gulp.task('sprites', function () {
+  console.log(sprite);
+
+  return sprity.src({
+    src: sprite.src,
+    name: sprite.name,
+    style: sprite.style,
+    processor: 'sass'
+  })
+  .pipe(
+    gulpif('*.png',
+      gulp.dest('./dist/img/'),
+      gulp.dest('./dist/css/'))
+  );
+});
 
 gulp.task('develop', [
 	'html',

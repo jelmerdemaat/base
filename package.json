@@ -13,11 +13,14 @@
     "gulp": "*",
     "gulp-concat": "*",
     "gulp-csso": "*",
+    "gulp-if": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",
     "gulp-scss-lint": "*",
     "gulp-sourcemaps": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "sprity": "*",
+    "sprity-sass": "*"
   },
   "repository": {
     "url": "%repository%"
