@@ -1,5 +1,5 @@
 {
-  "name": "%name%",
+  "name": "untitled",
   "version": "0.0.1",
   "description": "%description%",
   "license": "MIT",
@@ -16,9 +16,9 @@
     "gulp-if": "*",
     "gulp-rename": "*",
     "gulp-sass": "*",
-    "gulp-scss-lint": "*",
+    "gulp-scss-lint": "^0.3.0",
     "gulp-sourcemaps": "*",
-    "gulp-uglify": "*",
+    "gulp-uglify": "^1.4.0",
     "sprity": "*",
     "sprity-sass": "*"
   },
