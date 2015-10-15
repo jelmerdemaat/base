@@ -36,7 +36,8 @@ gulp.task('html', function () {
 
 gulp.task('scss', function () {
   gulp.src(app.scss.src)
-    .pipe(scsslint({}))
+    .pipe(scsslint())
+    .pipe(scsslint.failReporter())
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compact'

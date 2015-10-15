@@ -1,5 +1,5 @@
 # Exclude external CSS files that aren't written by me
-exclude: 'src/sass/vendor/**'
+exclude: 'src/scss/vendor/**'
 
 # Scss lint settings
 linters:
@@ -17,7 +17,7 @@ linters:
     style: include_zero
   NestingDepth:
     enabled: true
-    max_depth: 2
+    max_depth: 3
   PropertySortOrder:
     enabled: false
   QualifyingElement:
