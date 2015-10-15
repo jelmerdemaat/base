@@ -1,3 +1,7 @@
+/**
+ * Required modules
+ */
+
 var gulp = require('gulp'),
     gulpif = require('gulp-if'),
 
@@ -13,40 +17,25 @@ var gulp = require('gulp'),
   	concat = require('gulp-concat'),
   	rename = require('gulp-rename');
 
-var src = 'src/',
-	  dest = 'dist/';
 
-var html = {
-	src: src + '*.html',
-	dest: dest
-};
+/**
+ * Application variables
+ */
 
-var scss = {
-	src: src + 'sass/**/*.scss',
-	dest: dest + 'css/',
-  folder: src + 'sass/'
-};
+var app = require('./gulp-settings.js');
 
-var javascript = {
-	src: src + 'javascript/**/*.js',
-	dest: dest + 'js/'
-};
 
-var sprite = {
-  src: src + 'sprite/*.{png,jpg,gif}',
-  dest: dest + 'sprite/',
-  name: 'sprite',
-  style: scss.folder + 'sprite.scss',
+/**
+ * Gulp tasks
+ */
 
-};
-
-gulp.task('html', function() {
-	gulp.src(html.src)
-		.pipe(gulp.dest(html.dest));
+gulp.task('html', function () {
+	gulp.src(app.html.src)
+		.pipe(gulp.dest(app.html.dest));
 });
 
-gulp.task('scss', function() {
-  gulp.src(scss.src)
+gulp.task('scss', function () {
+  gulp.src(app.scss.src)
     .pipe(scsslint({}))
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -56,11 +45,11 @@ gulp.task('scss', function() {
     .on('error', function(err) {
       console.log(err);
     })
-    .pipe(gulp.dest(scss.dest));
+    .pipe(gulp.dest(app.scss.dest));
 });
 
-gulp.task('scss:build', function() {
-  gulp.src(scss.src)
+gulp.task('scss:build', function () {
+  gulp.src(app.scss.src)
     .pipe(sass({
       outputStyle: 'compressed'
     }))
@@ -68,24 +57,24 @@ gulp.task('scss:build', function() {
     .on('error', function(err) {
       console.log(err);
     })
-    .pipe(gulp.dest(scss.dest));
+    .pipe(gulp.dest(app.scss.dest));
 });
 
-gulp.task('javascript', function() {
-  gulp.src(javascript.src)
+gulp.task('js', function () {
+  gulp.src(app.js.src)
     .on('error', function(err) {
       console.log(err);
     })
-    .pipe(gulp.dest(javascript.dest));
+    .pipe(gulp.dest(app.js.dest));
 });
 
-gulp.task('javascript:build', function() {
-  gulp.src(javascript.src)
+gulp.task('js:build', function () {
+  gulp.src(app.js.src)
     .pipe(uglify())
     .on('error', function(err) {
       console.log(err);
     })
-    .pipe(gulp.dest(javascript.dest));
+    .pipe(gulp.dest(app.js.dest));
 });
 
 
@@ -110,17 +99,17 @@ gulp.task('sprites', function () {
 gulp.task('develop', [
 	'html',
 	'scss',
-	'javascript'
+	'js'
 ]);
 
 gulp.task('build', [
   'html',
   'scss:build',
-  'javascript:build'
+  'js:build'
 ]);
 
-gulp.task('default', ['develop'], function() {
-	gulp.watch(html.src, ['html']);
-	gulp.watch(scss.src, ['scss']);
-	gulp.watch(javascript.src, ['javascript']);
+gulp.task('default', ['develop'], function () {
+	gulp.watch(app.html.src, ['html']);
+	gulp.watch(app.scss.src, ['scss']);
+	gulp.watch(app.js.src, ['js']);
 });
